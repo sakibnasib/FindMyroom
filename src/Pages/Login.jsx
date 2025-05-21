@@ -1,14 +1,40 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React, { use } from 'react';
+import { Link, useLocation } from 'react-router';
+import { AuthContex } from '../Provider/AuthProvider';
+import { useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
 const Login = () => {
-
+	const {signIn}=use(AuthContex)
+ const location =useLocation();
+  const navigate = useNavigate();
+  console.log(location.state)
     const handleLogin=e=>{
  e.preventDefault();
  const email=e.target.email.value 
  const password=e.target.password.value
 
- console.log(email,password)
+ signIn(email,password)
+ .then((result)=>{
+	const user = result.user;
+	navigate(`${location.state ? location.state : "/"}`);
+	Swal.fire({
+  position: "top-center",
+  icon: "success",
+  title: "You are successfully Login",
+  showConfirmButton: false,
+  timer: 1500
+});
+ 
+ })
+  .catch((error) => {
+        const errorCode = error.code;
+        Swal.fire({
+		  title: "Error?",
+		  text: errorCode ||String(error) ,
+		  icon: "question"
+		});
+      });
 
     }
     return (

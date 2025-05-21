@@ -1,158 +1,118 @@
-import React, { useState } from 'react';
+import React, { use } from 'react';
+import { AuthContex } from '../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddRoommate = () => {
-  const [formData, setFormData] = useState({
-    title: '',
-    location: '',
-    rentAmount: '',
-    roomType: '',
-    lifestylePreferences: '',
-    description: '',
-    contactInfo: '',
-    availability: 'available',
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Submitted Data:', { ...formData });
-    // Backend API call here
-  };
-
+  const{user}=use(AuthContex)
+console.log(user)
+  const handleAddDb=e=>{
+      e.preventDefault();
+        const form=e.target 
+         const formData = new FormData(form);
+    const roommate = Object.fromEntries(formData.entries());
+// addDb 
+ fetch('http://localhost:3000/roommates',{
+  method:"POST",
+  headers:{
+    "content-type": "application/json",
+  },
+body:JSON.stringify(roommate)
+ })
+ .then((res)=>res.json())
+ .then((data)=>{
+ if (data.insertedId) {
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "AddRoommate data successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          form.reset()
+        }
+ })
+  }
   return (
-    <form onSubmit={handleSubmit} className="bg-violet-200 mt-5 p-4 w-9/12 mx-auto rounded shadow">
-      <h2 className="text-xl font-bold mb-4 text-center">Add a New Listing</h2>
-
-      <label className="block mb-2">
-        Title:
-        <input
-          type="text"
-          name="title"
-          value={formData.title}
-          onChange={handleChange}
-          required
-          className="w-full border p-2 rounded"
-        />
-      </label>
-
-      <label className="block mb-2">
-        Location:
-        <input
-          type="text"
-          name="location"
-          value={formData.location}
-          onChange={handleChange}
-          required
-          className="w-full border p-2 rounded"
-        />
-      </label>
-
-      <label className="block mb-2">
-        Rent Amount:
-        <input
-          type="number"
-          name="rentAmount"
-          value={formData.rentAmount}
-          onChange={handleChange}
-          required
-          className="w-full border p-2 rounded"
-        />
-      </label>
-
-      <label className="block mb-2">
+    <div className=" flex justify-center items-center mt-5 mb-5 w-full">
+            <div className="w-full  p-8 space-y-3 rounded-xl bg-orange-100 text-gray-800">
+	<h1 className="text-2xl font-bold text-center">Add to Find Roommate</h1>
+	<form onSubmit={handleAddDb} className="space-y-6">
+  <div className=" grid grid-cols-1 md:grid-cols-2 gap-5">
+    {/* title */}
+    <div className="space-y-1 text-sm">
+			<label  className="block text-gray-600 font-semibold">Title</label>
+			<input type="text" name="title" placeholder="Title" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+		</div>
+    {/*Location  */}
+     <div className="space-y-1 text-sm">
+			<label  className="block text-gray-600 font-semibold">Location</label>
+			<input type="text" name="location" placeholder="Location" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+		</div>
+    {/* Rent Amount */}
+    <div className="space-y-1 text-sm">
+			<label  className="block text-gray-600 font-semibold">Rent Amount</label>
+			<input type="text" name="amount" placeholder="Rent Amount" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+		</div>
+    {/* Room Type */}
+    <div className="space-y-1 text-sm">
+       <label className="block  text-gray-600 font-semibold">
         Room Type:
         <select
           name="roomType"
-          value={formData.roomType}
-          onChange={handleChange}
           required
-          className="w-full border p-2 rounded"
+          className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600 "
         >
           <option value="">Select</option>
           <option value="Single">Single</option>
           <option value="Shared">Shared</option>
         </select>
-      </label>
-
-      <label className="block mb-2">
-        Lifestyle Preferences:
-        <input
-          type="text"
-          name="lifestylePreferences"
-          value={formData.lifestylePreferences}
-          onChange={handleChange}
-          placeholder="Pets, Smoking, Night Owl, etc."
-          className="w-full border p-2 rounded"
-        />
-      </label>
-
-      <label className="block mb-2">
-        Description:
-        <textarea
-          name="description"
-          value={formData.description}
-          onChange={handleChange}
-          required
-          className="w-full border p-2 rounded"
-        />
-      </label>
-
-      <label className="block mb-2">
-        Contact Info:
-        <input
-          type="text"
-          name="contactInfo"
-          value={formData.contactInfo}
-          onChange={handleChange}
-          required
-          className="w-full border p-2 rounded"
-        />
-      </label>
-
-      <label className="block mb-2">
+      </label> 
+		</div>
+    {/* Lifestyle Preferences */}
+     <div className="space-y-1 text-sm">
+			<label className="block text-gray-600 font-semibold">Lifestyle Preferences</label>
+			<input type="text" name="lifestyle" placeholder="Pets, Smoking, Night Owl, etc." className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+		</div>
+    {/* Description*/}
+    <div className="space-y-1 text-sm">
+			<label  className="block text-gray-600 font-semibold">Description</label>
+			<input type="text" name="description" placeholder="description" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+		</div>
+{/* Contact Info */}
+<div className="space-y-1 text-sm">
+			<label htmlFor="password" className="block text-gray-600 font-semibold">Contact Info</label>
+			<input type="text" name="contact" placeholder="Phone number" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+		</div>
+    {/* Availability  */}
+    <div className="space-y-1 text-sm">
+		<label className="block mb-2 text-gray-600 font-semibold">
         Availability:
         <select
           name="availability"
-          value={formData.availability}
-          onChange={handleChange}
-          className="w-full border p-2 rounded"
+          className="w-full border p-2 rounded border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600"
         >
           <option value="available">Available</option>
           <option value="not available">Not Available</option>
         </select>
-      </label>
+      </label> 
+		</div>
+    {/* email */}
+		<div className="space-y-1 text-sm">
+			<label htmlFor="username" className="block text-gray-600 font-semibold">Email</label>
+			<input type="email" name="email" value={user.email}  placeholder="email" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+		</div>
+    {/* name */}
+		<div className="space-y-1 text-sm">
+			<label  className="block text-gray-600 font-semibold">User Name</label>
+			<input type="text" name="name" value={user.displayName} placeholder="" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 dark:text-gray-800 focus:border-violet-600" />
+		</div>
+  </div>
 
-      <label className="block mb-2">
-        User Email (Read Only):
-        <input
-          type="email"
-        //   value={userEmail}
-          readOnly
-          className="w-full border p-2 rounded bg-gray-100"
-        />
-      </label>
-
-      <label className="block mb-4">
-        User Name (Read Only):
-        <input
-          type="text"
-        //   value={userName}
-          readOnly
-          className="w-full border p-2 rounded bg-gray-100"
-        />
-      </label>
-
-      <button
-        type="submit"
-        className="bg-blue-600 w-full text-white px-4 py-2 rounded hover:bg-blue-700"
-      >
-        Add
-      </button>
-    </form>
+		<button type='submit' className="block w-full p-3 text-center rounded-xl text-gray-50 bg-orange-800 font-semibold">Add</button>
+	</form>
+	
+</div>
+        </div>
   );
 };
 

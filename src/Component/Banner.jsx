@@ -21,7 +21,7 @@ const Banner = () => {
       </div>
       <div className="inset-y-0 pt-10 right-0 w-full max-w-xl px-4 mx-auto lg:pl-8 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-1/2 lg:max-w-full lg:absolute xl:px-0">
         {/*  */}
-<div className="carousel carousel-vertical rounded-box h-96 w-full">
+<div className="carousel carousel-vertical rounded-lg h-96 w-full">
   <div className="carousel-item h-full w-full">
     <img src={logo1} />
   </div>

@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
+import { AuthContex } from '../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Register = () => {
+	const {createUser, setUser, updateUser}=use(AuthContex)
     const handleRegister=e=>{
         e.preventDefault();
         const form=e.target 
@@ -10,7 +13,37 @@ const Register = () => {
         const email=form.email.value 
         const password=form.password.value 
         console.log(name,photo,email,password)
-
+      // firebase 
+	  createUser(email,password)
+	  .then((result)=>{
+		const user=result.user ;
+		 updateUser({ displayName: name, photoURL: photo })
+		  .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photo });
+			Swal.fire({
+  position: "top-center",
+  icon: "success",
+  title: "You are successfully Register",
+  showConfirmButton: false,
+  timer: 1500
+});
+            // navigate("/");
+          }).catch((error) => {
+            console.log(error);
+            setUser(user);
+          });
+	  })
+	    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+		Swal.fire({
+  title: "Error?",
+  text: errorCode || errorMessage || String(error) ,
+  icon: "question"
+});
+        alert(errorMessage, errorCode);
+        // ..
+      });
     }
     return (
         <div className=" flex justify-center items-center m-5">
