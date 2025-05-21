@@ -3,6 +3,8 @@ import Text from '../Component/Text';
 import Banner from '../Component/Banner';
 import FeatturedSction from '../Component/FeatturedSction';
 import HowToWork from '../Component/HowToWork';
+import Review from '../Component/Review';
+import Freaquently from '../Component/Freaquently';
 
 const Home = () => {
     return (
@@ -11,6 +13,8 @@ const Home = () => {
             <Text></Text>
             <FeatturedSction></FeatturedSction>
             <HowToWork></HowToWork>
+            <Review></Review>
+            <Freaquently></Freaquently>
         </div>
     );
 };

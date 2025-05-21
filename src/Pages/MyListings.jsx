@@ -1,12 +1,11 @@
 import React, { use, useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router';
 import { AuthContex } from '../Provider/AuthProvider';
 import BroTableHade from '../Component/BroTableHade';
 
 const MyListings = () => {
     const {user}=use(AuthContex)
 	const[newData,setNewData]=useState([])
-	console.log(user.email)
+	console.log(newData)
 	useEffect(()=>{
 		 if(user?.email){
 			fetch(`http://localhost:3000/roommates/email/${user.email}`)

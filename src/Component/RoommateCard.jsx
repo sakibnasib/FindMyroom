@@ -50,7 +50,7 @@
 
 import React from 'react';
 import { FaLocationDot, FaBed, FaDollarSign } from "react-icons/fa6";
-import { MdOutlinePermIdentity } from "react-icons/md";
+import { MdOutlinePermIdentity, MdTitle } from "react-icons/md";
 import { Link } from 'react-router';
 
 const RoommateCard = ({d}) => {
@@ -62,7 +62,11 @@ const RoommateCard = ({d}) => {
                     <MdOutlinePermIdentity className="text-violet-600" size={24}/>
                     <h3 className="text-xl font-semibold text-gray-800">{d.name}</h3>
                 </div>
-                <p className="text-gray-600 ml-8">{d.title}</p>
+                <div className="flex items-center gap-1 mb-2">
+                    <MdTitle className="text-violet-600" size={24}/>
+                    <p className="text-gray-600 ml-8">{d.title}</p>
+                </div>
+                
             </div>
 
             {/* Key Information */}

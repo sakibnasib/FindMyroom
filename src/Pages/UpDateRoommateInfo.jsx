@@ -1,11 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router';
+import Swal from 'sweetalert2';
 
 const UpDateRoommateInfo = () => {
-const{title,location,amount,roomType,lifestyle,description,contact,availability}=useLoaderData()
-  const handleUpDate=(e)=>{
- e.preventDefault();
-  }
+  const [roomType, setRoomType] = useState("Single");
+const[availability,setAvailability]=useState('availability')
+const{title,location,amount,lifestyle,description,contact,_id}=useLoaderData()
+  const handleUpDate = (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const formData = new FormData(form);
+  const { roomType, availability, ...restFormData } = Object.fromEntries(formData.entries());
+
+  const newData = {
+    roomType,
+    availability,
+    ...restFormData,
+  };
+
+    fetch(`http://localhost:3000/roommates/${_id}`,{
+        method:"PUT",
+        headers:{
+             "content-type": "application/json",
+        },
+        body:JSON.stringify( newData)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        if(data.modifiedCount){
+             Swal.fire({
+                       position: "top-center",
+                       icon: "success",
+                       title: "UpDateRoommateInfo successfully",
+                       showConfirmButton: false,
+                       timer: 1500,
+                     }); 
+        }
+    })
+};
+
     return (
         <div className=" flex justify-center items-center mt-5 mb-5 w-full">
             <div className="w-full  p-8 space-y-3 rounded-xl bg-violet-200 text-gray-800">
@@ -33,7 +66,8 @@ const{title,location,amount,roomType,lifestyle,description,contact,availability}
         Room Type:
         <select
           name="roomType"
-          
+         value={roomType}
+  onChange={(e) => setRoomType(e.target.value)}
           required
           className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600 "
         >
@@ -64,6 +98,8 @@ const{title,location,amount,roomType,lifestyle,description,contact,availability}
         Availability:
         <select
           name="availability"
+           value={availability}
+        onChange={(e) => setAvailability(e.target.value)}
           className="w-full border p-2 rounded border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600"
         >
           <option value="available">Available</option>

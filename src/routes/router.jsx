@@ -9,6 +9,7 @@ import BrowseListing from "../Pages/BrowseListing";
 import RoommateDetails from "../Pages/RoommateDetails";
 import UpDateRoommateInfo from "../Pages/UpDateRoommateInfo";
 import MyListings from "../Pages/MyListings";
+import Loding from "../Component/Loding";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
         path: "/roommateDetails/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/roommates/${params.id}`),
+         hydrateFallbackElement: <Loding></Loding> ,
         element: (
           <PrivateRouter>
             <RoommateDetails></RoommateDetails>
@@ -44,6 +46,7 @@ const router = createBrowserRouter([
         path: "/upDateRoommateInfo/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/roommates/${params.id}`),
+        hydrateFallbackElement: <Loding></Loding> ,
         element: (
           <PrivateRouter>
             <UpDateRoommateInfo />

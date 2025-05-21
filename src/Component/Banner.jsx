@@ -1,6 +1,7 @@
 import React from 'react';
 import logo1 from '../assets/WhatsApp Image 2025-05-19 at 23.12.33_174c4461.jpg'
 import logo2 from '../assets/WhatsApp Image 2025-05-19 at 23.26.16_d411be48.jpg'
+import { Typewriter } from 'react-simple-typewriter'
 const Banner = () => {
     return (
         <div className="relative flex flex-col py-16 lg:pt-0 lg:flex-col lg:pb-0">
@@ -8,7 +9,13 @@ const Banner = () => {
         <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
           <div className="max-w-xl mb-6">
             <h2 className='max-w-lg mb-6 text-[3rem] font-bold'>
-              The Best & Fastest Roommate Finder .
+              The Best & <Typewriter
+              cursor
+              loop={true}
+               typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+               words={['Faster Roommate Finder ']}/> .
             </h2>
             <p className="text-base text-gray-700 md:text-lg">
               Looking for a roommate,renting out a room, or teaming up to find a new place?<span>FindMyRoom</span>helps you find compatible roommate easily with a safe,hassle-free experience
