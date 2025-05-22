@@ -18,7 +18,7 @@ const{title,location,amount,lifestyle,description,contact,_id}=useLoaderData()
     ...restFormData,
   };
 
-    fetch(`http://localhost:3000/roommates/${_id}`,{
+    fetch(`https://find-my-roommate-server.vercel.app/roommates/${_id}`,{
         method:"PUT",
         headers:{
              "content-type": "application/json",
@@ -41,7 +41,7 @@ const{title,location,amount,lifestyle,description,contact,_id}=useLoaderData()
 
     return (
         <div className=" flex justify-center items-center mt-5 mb-5 w-full">
-            <div className="w-full  p-8 space-y-3 rounded-xl bg-violet-200 text-gray-800">
+            <div className="w-full  p-8 space-y-3 rounded-xl bg-violet-300 text-gray-800">
 	<h1 className="text-2xl font-bold text-center">UpDateRoommateInfo</h1>
 	<form onSubmit={handleUpDate} className="space-y-6">
   <div className=" grid grid-cols-1 md:grid-cols-2 gap-5">

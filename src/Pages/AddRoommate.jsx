@@ -3,6 +3,7 @@ import { AuthContex } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const AddRoommate = () => {
+   
   const{user}=use(AuthContex)
 console.log(user)
   const handleAddDb=e=>{
@@ -10,13 +11,17 @@ console.log(user)
         const form=e.target 
          const formData = new FormData(form);
     const roommate = Object.fromEntries(formData.entries());
+    const roomateData={
+      likeCount:0,
+      ...roommate
+    }
 // addDb 
- fetch('http://localhost:3000/roommates',{
+ fetch('https://find-my-roommate-server.vercel.app/roommates',{
   method:"POST",
   headers:{
     "content-type": "application/json",
   },
-body:JSON.stringify(roommate)
+body:JSON.stringify(roomateData)
  })
  .then((res)=>res.json())
  .then((data)=>{
@@ -34,7 +39,7 @@ body:JSON.stringify(roommate)
   }
   return (
     <div className=" flex justify-center items-center mt-5 mb-5 w-full">
-            <div className="w-full  p-8 space-y-3 rounded-xl bg-orange-100 text-gray-800">
+            <div className="w-full  p-8 space-y-3 rounded-xl bg-violet-300 text-gray-800">
 	<h1 className="text-2xl font-bold text-center">Add to Find Roommate</h1>
 	<form onSubmit={handleAddDb} className="space-y-6">
   <div className=" grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -43,6 +48,7 @@ body:JSON.stringify(roommate)
 			<label  className="block text-gray-600 font-semibold">Title</label>
 			<input type="text" name="title" placeholder="Title" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
 		</div>
+  
     {/*Location  */}
      <div className="space-y-1 text-sm">
 			<label  className="block text-gray-600 font-semibold">Location</label>
@@ -108,7 +114,7 @@ body:JSON.stringify(roommate)
 		</div>
   </div>
 
-		<button type='submit' className="block w-full p-3 text-center rounded-xl text-gray-50 bg-orange-800 font-semibold">Add</button>
+		<button type='submit' className="block w-full p-3 text-center rounded-xl text-gray-50 bg-violet-600 font-semibold">Add</button>
 	</form>
 	
 </div>

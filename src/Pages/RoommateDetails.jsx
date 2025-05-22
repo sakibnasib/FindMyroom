@@ -1,111 +1,52 @@
-// import React from 'react';
-// import { Link, useLoaderData } from 'react-router';
-// import { MdDelete } from "react-icons/md";
-// import { CiEdit } from "react-icons/ci";
-// import Swal from 'sweetalert2';
-// const RoommateDetails = () => {
-//     const data=useLoaderData();
-//     const handleDelete = (_id) => {
-//     console.log(_id)
-//     Swal.fire({
-//   title: "Are you sure?",
-//   text: "You won't be able to revert this!",
-//   icon: "warning",
-//   showCancelButton: true,
-//   confirmButtonColor: "#3085d6",
-//   cancelButtonColor: "#d33",
-//   confirmButtonText: "Yes, delete it!"
-// }).then((result) => {
-//   if (result.isConfirmed) {
-// fetch(`http://localhost:3000/roommates/682c5712651c5cfe5583b577`,{
-//     method:"DELETE",
-// }).then((res) => res.json())
-// .then((data)=>{
-//     if(data.deletedCount){
-// Swal.fire({
-//       title: "Deleted!",
-//       text: "Your file has been deleted.",
-//       icon: "success"
-//     });
-//     }
-// })
-//   }
-// });
-//   };
-//     console.log(data)
-//     return (
-//         <div>
-//             <h1>{data.name}</h1>
 
-//    <button onClick={()=>handleDelete(data._id)}><MdDelete/></button>
-//    <Link to={`/upDateRoommateInfo/${data._id}`}><button><CiEdit size={35}/></button></Link>
-//         </div>
-//     );
-// };
-
-// export default RoommateDetails;
-
-
-import React from 'react';
-import { Link, useLoaderData, useNavigate } from 'react-router';
+import React, { use, useState } from 'react';
+import {  useLoaderData } from 'react-router';
 import { MdDelete, MdLocationOn, MdEmail, MdPhone, MdPerson } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import { FaBed, FaDollarSign } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
-import Swal from 'sweetalert2';
-
+import { SlLike } from "react-icons/sl";
+import img from '../assets/images (1).png'
+import { AuthContex } from '../Provider/AuthProvider';
 const RoommateDetails = () => {
+    const {user}=use(AuthContex)
     const data = useLoaderData();
-    const navigate = useNavigate(); 
-    const handleDelete = (_id) => {
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                fetch(`http://localhost:3000/roommates/${_id}`, {
-                    method: "DELETE",
-                }).then((res) => res.json())
-                    .then((data) => {
-navigate('/')
-                        if (data.deletedCount) {
-                            Swal.fire({
-                                title: "Deleted!",
-                                text: "Your file has been deleted.",
-                                icon: "success"
-                            });
-                        }
-                    })
-            }
-        });
-    };
+   const [number,setNumber]=useState(false);
+   const [likeCount, setLikeCount] = useState(data.likeCount || 0);
+   const handleLike=(_id)=>{
+    fetch(`https://find-my-roommate-server.vercel.app/${_id}/likes`,{
+        method:"PATCH",
+        headers:{
+            "content-type": "application/json",
+        },
+        body:JSON.stringify({incrementBy: 1})
+    })
+    .then(res =>res.json())
+    .then(data=>{
+        if(data.modifiedCount){
+            setNumber(true)
+            setLikeCount(prev => prev + 1)
+        }
+    })
 
+   };
+   console.log(data.email,user.email )
     return (
         <div className="max-w-4xl mx-auto p-6">
             <div className="bg-white rounded-lg shadow-lg p-6">
                 {/* Header Section */}
+                <div className="flex justify-center items-center">
+                    <img src={img} className='w-[70px] h-[60px]' alt="" />
+                   <h1 className='text-[1.5rem] font-bold'>RoommateDetails</h1>
+                </div>
+                <div className="flex justify-end ">
+                    <span className='btn'><SlLike color='blue' size={25}></SlLike> {likeCount}</span>
+                </div>
                 <div className="flex justify-between items-center mb-6">
                     <div>
                         <h1 className="text-3xl font-bold text-gray-800">{data.name}</h1>
                     </div>
-                    <div className="flex gap-3">
-                        <button 
-                            onClick={() => handleDelete(data._id)}
-                            className="p-2 text-red-600 hover:bg-red-100 rounded-full transition-colors"
-                        >
-                            <MdDelete size={24} />
-                        </button>
-                        <Link to={`/upDateRoommateInfo/${data._id}`}>
-                            <button className="p-2 text-blue-600 hover:bg-blue-100 rounded-full transition-colors">
-                                <CiEdit size={24} />
-                            </button>
-                        </Link>
-                    </div>
+                
                 </div>
 
                 {/* Main Info Grid */}
@@ -138,10 +79,16 @@ navigate('/')
                             <MdPerson className="text-violet-600" size={20} />
                             <span className="text-gray-700">Status: {data.availability}</span>
                         </div>
-                        <div className="flex items-center gap-2">
+
+                        {
+                            number && <>
+                             <div className="flex items-center gap-2">
                             <MdPhone className="text-violet-600" size={20} />
                             <span className="text-gray-700">{data.contact}</span>
-                        </div>
+                        </div> 
+                            </>
+                        }
+                           
                     </div>
                 </div>
 
@@ -152,6 +99,15 @@ navigate('/')
                         {data.description}
                     </p>
                 </div>
+               <button
+  className={`btn w-full bg-violet-800 text-white rounded-2xl ${
+    data.email == user.email ? 'cursor-not-allowed opacity-50' : ''
+  }`}
+  onClick={() => handleLike(data._id)}
+  disabled={data.email == user.email}
+>
+  Like
+</button>
             </div>
         </div>
     );

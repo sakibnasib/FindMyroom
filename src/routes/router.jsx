@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       {
         path: "/roommateDetails/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/roommates/${params.id}`),
+          fetch(`https://find-my-roommate-server.vercel.app/roommates/${params.id}`),
          hydrateFallbackElement: <Loding></Loding> ,
         element: (
           <PrivateRouter>
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       {
         path: "/upDateRoommateInfo/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/roommates/${params.id}`),
+          fetch(`https://find-my-roommate-server.vercel.app/roommates/${params.id}`),
         hydrateFallbackElement: <Loding></Loding> ,
         element: (
           <PrivateRouter>

@@ -3,10 +3,10 @@ import React from "react";
 const Freaquently = () => {
   return (
     <div>
-      <section className="dark:bg-gray-100 dark:text-gray-800">
+      <section className="bg-white text-gray-800 mb-10">
 	<div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
 		<h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl">Frequently Asked Questions</h2>
-		<div className="divide-y dark:divide-gray-300">
+		<div className="divide-y divide-gray-300">
 			<div className="py-6 space-y-2 md:grid md:grid-cols-12 md:gap-8 md:space-y-0">
 				<h3 className="font-semibold md:col-span-5">Can FindMyRoom help me find roommates?</h3>
 				<p className="md:pl-0 md:col-span-7">Of course, that's exactly what we’re here for! FindMyRoom is a roommate finder platform designed to help you connect with like-minded roommates. Whether you’re looking for rooms for rent, need a roommate to fill your empty room, or want to team up with someone to find a new place, we’ve got you covered. We even offer listings for entire apartments for rent and coliving spaces in select cities.</p>
