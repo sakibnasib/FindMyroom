@@ -47,18 +47,18 @@ logOut().then(() => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
               <NavLink to='/'
-            className={({ isActive }) => (isActive ? "text-orange-400 font-semibold" : "")}
+            className={({ isActive }) => (isActive ? "text-violet-600 underline font-semibold" : "")}
           >
             Home
           </NavLink>
           <NavLink to='/addRoommate'
-           className={({ isActive }) => (isActive ? "text-orange-400 font-semibold" : "")}
+           className={({ isActive }) => (isActive ? "text-violet-600 underline font-semibold" : "")}
           >Add to Find Roommate</NavLink>
           <NavLink to='/browseListing'
-           className={({ isActive }) => (isActive ? "text-orange-400 font-semibold" : "")}
+           className={({ isActive }) => (isActive ? "text-violet-600 underline font-semibold" : "")}
           >Browse Listing</NavLink>
           <NavLink to='/myListings'
-           className={({ isActive }) => (isActive ? "text-orange-400 font-semibold" : "")}
+           className={({ isActive }) => (isActive ? "text-violet-600 underline font-semibold" : "")}
           >My Listings</NavLink>
           </ul>
         </div>
@@ -67,18 +67,18 @@ logOut().then(() => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 space-x-2">
           <NavLink to='/'
-            className={({ isActive }) => (isActive ? "text-orange-400 font-semibold" : "")}
+            className={({ isActive }) => (isActive ? "text-violet-600 underline font-semibold" : "")}
           >
             Home
           </NavLink>
           <NavLink to='/addRoommate'
-           className={({ isActive }) => (isActive ? "text-orange-400 font-semibold" : "")}
+           className={({ isActive }) => (isActive ? "text-violet-600 underline font-semibold" : "")}
           >Add to Find Roommate</NavLink>
           <NavLink to='/browseListing'
-           className={({ isActive }) => (isActive ? "text-orange-400 font-semibold" : "")}
+           className={({ isActive }) => (isActive ? "text-violet-600 underline font-semibold" : "")}
           >Browse Listing</NavLink>
           <NavLink to='/myListings'
-           className={({ isActive }) => (isActive ? "text-orange-400 font-semibold" : "")}
+           className={({ isActive }) => (isActive ? "text-violet-600 underline font-semibold" : "")}
           >My Listings</NavLink>
         </ul>
       </div>
@@ -90,7 +90,7 @@ logOut().then(() => {
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom" data-tip={user?.displayName}
+              className="btn btn-ghost btn-circle avatar tooltip tooltip-left" data-tip={user?.displayName}
             >
               <div className="w-10 rounded-full" >
                 <img alt="" src={user.photoURL} />
@@ -108,7 +108,7 @@ logOut().then(() => {
               <li>
                 <button
                   onClick={handleLogOut}
-                  className=" mt-2 btn btn-outline btn-error"
+                  className=" mt-2  btn-outline"
                 >
                   Logout
                 </button>

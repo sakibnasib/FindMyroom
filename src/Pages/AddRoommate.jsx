@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 const AddRoommate = () => {
    
   const{user}=use(AuthContex)
-console.log(user)
   const handleAddDb=e=>{
       e.preventDefault();
         const form=e.target 
