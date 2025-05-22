@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router";
 import icon from '../assets/images (1).png'
 import { AuthContex } from "../Provider/AuthProvider";
@@ -6,6 +6,19 @@ import Swal from "sweetalert2";
 const Navbar = () => {
   const {user,logOut}=use(AuthContex);
   const navigate = useNavigate();
+  const[theme,setTheme]=useState(localStorage.getItem("theme")?localStorage.getItem("them"):"light");
+  const handleToggle=(e)=>{
+    if(e.target.checked){
+      setTheme('dark')
+    }else{
+      setTheme('light')
+    }
+  }
+  useEffect(()=>{
+    localStorage.setItem("theme",theme)
+    const localThem=localStorage.getItem("theme");
+    document.querySelector('html').setAttribute('data-theme',localThem)
+  },[theme])
   const handleLogOut=()=>{
 logOut().then(() => {
   navigate('/')
@@ -128,7 +141,7 @@ logOut().then(() => {
         
         <label className="swap swap-rotate">
   {/* this hidden checkbox controls the state */}
-  <input type="checkbox" />
+  <input type="checkbox" onChange={handleToggle} />
 
   {/* sun icon */}
   <svg
