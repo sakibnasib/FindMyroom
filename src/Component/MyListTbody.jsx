@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 
-const MyListTbody = ({data,index}) => {
+const MyListTbody = ({data,index,setNewData,newData}) => {
     const handleDelete = (_id) => {
             Swal.fire({
                 title: "Are you sure?",
@@ -19,9 +19,11 @@ const MyListTbody = ({data,index}) => {
                     }).then((res) => res.json())
                         .then((data) => {
                             if (data.deletedCount) {
+                                const reaming=newData.filter(da=>da._id !==_id)
+                                setNewData(reaming)
                                 Swal.fire({
                                     title: "Deleted!",
-                                    text: "Your file has been deleted.",
+                                    text: "Your Roommate data deleted.",
                                     icon: "success"
                                 });
                             }

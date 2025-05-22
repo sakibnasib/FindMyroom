@@ -14,7 +14,7 @@ const RoommateDetails = () => {
    const [number,setNumber]=useState(false);
    const [likeCount, setLikeCount] = useState(data.likeCount || 0);
    const handleLike=(_id)=>{
-    fetch(`https://find-my-roommate-server.vercel.app/${_id}/likes`,{
+    fetch(`https://find-my-roommate-server.vercel.app/roommates/${_id}/likes`,{
         method:"PATCH",
         headers:{
             "content-type": "application/json",
@@ -40,7 +40,7 @@ const RoommateDetails = () => {
                    <h1 className='text-[1.5rem] font-bold'>RoommateDetails</h1>
                 </div>
                 <div className="flex justify-end ">
-                    <span className='btn'><SlLike color='blue' size={25}></SlLike> {likeCount}</span>
+                    <span className='btn'><SlLike color='violet-600' size={25}></SlLike> {likeCount}</span>
                 </div>
                 <div className="flex justify-between items-center mb-6">
                     <div>
@@ -101,7 +101,7 @@ const RoommateDetails = () => {
                 </div>
                <button
   className={`btn w-full bg-violet-800 text-white rounded-2xl ${
-    data.email == user.email ? 'cursor-not-allowed opacity-50' : ''
+    data.email == user.email ? ' opacity-50' : ''
   }`}
   onClick={() => handleLike(data._id)}
   disabled={data.email == user.email}

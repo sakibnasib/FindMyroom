@@ -44,7 +44,7 @@ const MyListings = () => {
 				</tr>
 			</thead>
             {newData?.map((data,index) => (
-  <MyListTbody key={data._id}  data={data} index={index} />
+  <MyListTbody key={data._id} newData={newData} setNewData={setNewData} data={data} index={index} />
 ))}
             </table>
             </div>

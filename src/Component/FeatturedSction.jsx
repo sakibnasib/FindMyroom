@@ -5,12 +5,13 @@ const FeatturedSction = () => {
     const [aldata,setAlData]=useState([])
     
         useEffect(()=>{
-            fetch('https://find-my-roommate-server.vercel.app/roommates')
+            fetch('https://find-my-roommate-server.vercel.app/roommates/available')
             .then(res=>res.json())
             .then(data=>{
-                const newData=data.filter(single=>single.availability==="available")
-             const sixData =(newData.slice(0, 6)) 
-                setAlData(sixData)
+            //     const newData=data.filter(single=>single.availability==="available")
+            //  const sixData =(newData.slice(0, 6)) 
+                setAlData(data)
+                console.log(data)
             })
         },[])
     return (
@@ -22,7 +23,7 @@ const FeatturedSction = () => {
             <p className='text-xl text-center'>Some amazing people are looking for a roommate like you.</p>
             <div className=" grid grid-cols-1 md:grid-cols-3 gap-5 mt-15 mb-6 px-3">
                 {
-                aldata.map(d=>(<RoommateCard key={d._id} d={d}></RoommateCard>))
+                aldata?.map(d=>(<RoommateCard key={d._id} d={d}></RoommateCard>))
             }
             </div>
         </div>
