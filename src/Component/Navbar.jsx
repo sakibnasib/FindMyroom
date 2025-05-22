@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const Navbar = () => {
   const {user,logOut}=use(AuthContex);
   const navigate = useNavigate();
-  const[theme,setTheme]=useState(localStorage.getItem("theme")?localStorage.getItem("them"):"light");
+  const[theme,setTheme]=useState(localStorage.getItem("theme")?localStorage.getItem("theme") : "light");
   const handleToggle=(e)=>{
     if(e.target.checked){
       setTheme('dark')
