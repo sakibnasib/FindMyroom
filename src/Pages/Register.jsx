@@ -6,13 +6,32 @@ import Swal from 'sweetalert2';
 const Register = () => {
 	const {createUser, setUser, updateUser,goggle}=use(AuthContex);
 	const navigate = useNavigate();
+	
     const handleRegister=e=>{
         e.preventDefault();
         const form=e.target 
         const name=form.name.value 
         const photo=form.photo.value 
         const email=form.email.value 
-        const password=form.password.value 
+        const password=form.password.value ;
+		const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+if (!passwordPattern.test(password)) {
+  Swal.fire({
+    icon: "error",
+    title: "Weak Password",
+    html: `
+      <ul style="text-align: left;">
+        <li>❌ Must have an <strong>uppercase</strong> letter</li>
+        <li>❌ Must have a <strong>lowercase</strong> letter</li>
+        <li>❌ Must be at least <strong>6 characters</strong> long</li>
+      </ul>
+    `,
+    timer: 3000,
+  });
+  return;
+}
+		 
       // firebase 
 	  createUser(email,password)
 	  .then((result)=>{
@@ -42,7 +61,7 @@ const Register = () => {
   text: errorCode || errorMessage || String(error) ,
   icon: "question"
 });
-        alert(errorMessage, errorCode);
+        // alert(errorMessage, errorCode);
         // ..
       });
     };
@@ -50,6 +69,13 @@ const Register = () => {
 		goggle()
 		.then(()=>{
     navigate(`${location.state ? location.state : "/"}`);
+	Swal.fire({
+	  position: "top-center",
+	  icon: "success",
+	  title: "You are successfully Login",
+	  showConfirmButton: false,
+	  timer: 1500
+	});
   }).catch(error=>{
       console.log(error)
   })

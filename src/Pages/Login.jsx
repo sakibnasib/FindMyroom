@@ -1,14 +1,14 @@
 import React, { use } from 'react';
-import { Link, useLocation } from 'react-router';
+import { Link,useLocation } from 'react-router';
 import { AuthContex } from '../Provider/AuthProvider';
 import { useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 
 const Login = () => {
 	const {signIn,goggle}=use(AuthContex)
- const location =useLocation();
+ const location = useLocation();
   const navigate = useNavigate();
-//   console.log(location.state)
+  console.log(location.state)
     const handleLogin=e=>{
  e.preventDefault();
  const email=e.target.email.value 
@@ -41,6 +41,13 @@ const Login = () => {
 		goggle()
 		.then(()=>{
     navigate(`${location.state ? location.state : "/"}`);
+	Swal.fire({
+  position: "top-center",
+  icon: "success",
+  title: "You are successfully Login",
+  showConfirmButton: false,
+  timer: 1500
+});
   }).catch(error=>{
       console.log(error)
   })
@@ -76,7 +83,7 @@ const Login = () => {
 		</button>
 	</div>
 	<p className="text-xs text-center sm:px-6 text-gray-600">Don't have an account?
-		<Link to='/'  className="underline text-gray-800"> Register</Link>
+		<Link to='/register'  className="underline text-gray-800"> Register</Link>
 	</p>
 </div>
         </div>
