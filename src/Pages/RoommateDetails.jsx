@@ -37,10 +37,10 @@ const RoommateDetails = () => {
                 {/* Header Section */}
                 <div className="flex justify-center items-center">
                     <img src={img} className='w-[70px] h-[60px]' alt="" />
-                   <h1 className='text-[1.5rem] font-bold'>RoommateDetails</h1>
+                   <h1 className='text-[1.5rem] font-bold text-violet-600'>RoommateDetails</h1>
                 </div>
                 <div className="flex justify-end ">
-                    <span className='btn'><SlLike color='violet-600' size={25}></SlLike> {likeCount}</span>
+                    <span className='btn rounded-3xl'><SlLike color='blue' size={25}></SlLike> {likeCount}</span>
                 </div>
                 <div className="flex justify-between items-center mb-6">
                     <div>

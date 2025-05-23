@@ -33,7 +33,7 @@ const Review = () => {
       >
 		 <div className=" grid grid-cols-1 md:grid-cols-4 gap-5 px-5 ">
         {/*1 */}
-         <div className=" shadow-2xl flex flex-col w-full  p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800">
+         <div className=" shadow-2xl  flex flex-col w-full  p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800">
           <div className="flex justify-between p-4">
             <div className="flex space-x-4">
               <div>

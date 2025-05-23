@@ -31,7 +31,7 @@ const BrowseListing = () => {
 			</colgroup>
 			<thead className="bg-violet-200">
 				<tr className="text-left">
-					<th className="p-3">Seireal</th>
+					<th className="p-3"></th>
 					<th className="p-3">Name</th>
 					<th className="p-3">Location</th>
 					<th className="p-3">Rent Amount</th>
