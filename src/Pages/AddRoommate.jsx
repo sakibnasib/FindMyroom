@@ -45,18 +45,18 @@ body:JSON.stringify(roomateData)
     {/* title */}
     <div className="space-y-1 text-sm">
 			<label  className="block text-gray-600 font-semibold">Title</label>
-			<input type="text" name="title" placeholder="Title" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+			<input type="text"  required name="title" placeholder="Title" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
 		</div>
   
     {/*Location  */}
      <div className="space-y-1 text-sm">
 			<label  className="block text-gray-600 font-semibold">Location</label>
-			<input type="text" name="location" placeholder="Location" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+			<input type="text"  required name="location" placeholder="Location" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
 		</div>
     {/* Rent Amount */}
     <div className="space-y-1 text-sm">
 			<label  className="block text-gray-600 font-semibold">Rent Amount</label>
-			<input type="text" name="amount" placeholder="Rent Amount" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+			<input type="text"  required name="amount" placeholder="Rent Amount" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
 		</div>
     {/* Room Type */}
     <div className="space-y-1 text-sm">
@@ -76,24 +76,24 @@ body:JSON.stringify(roomateData)
     {/* Lifestyle Preferences */}
      <div className="space-y-1 text-sm">
 			<label className="block text-gray-600 font-semibold">Lifestyle Preferences</label>
-			<input type="text" name="lifestyle" placeholder="Pets, Smoking, Night Owl, etc." className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+			<input type="text"  required name="lifestyle" placeholder="Pets, Smoking, Night Owl, etc." className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
 		</div>
     {/* Description*/}
     <div className="space-y-1 text-sm">
 			<label  className="block text-gray-600 font-semibold">Description</label>
-			<input type="text" name="description" placeholder="description" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+			<input type="text"  required name="description" placeholder="description" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
 		</div>
 {/* Contact Info */}
 <div className="space-y-1 text-sm">
 			<label htmlFor="password" className="block text-gray-600 font-semibold">Contact Info</label>
-			<input type="text" name="contact" placeholder="Phone number" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+			<input type="text"  required name="contact" placeholder="Phone number" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
 		</div>
     {/* Availability  */}
     <div className="space-y-1 text-sm">
 		<label className="block mb-2 text-gray-600 font-semibold">
         Availability:
         <select
-          name="availability"
+          name="availability"  required
           className="w-full border p-2 rounded border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600"
         >
           <option value="available">Available</option>
