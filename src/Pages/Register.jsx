@@ -82,7 +82,7 @@ if (!passwordPattern.test(password)) {
 	}
     return (
         <div className=" flex justify-center items-center m-5">
-            <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-violet-200 text-gray-800">
+            <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gradient-to-r from-blue-100 via-indigo-100 to-purple-100 text-gray-800">
 	<h1 className="text-2xl font-bold text-center">Register</h1>
 	<form onSubmit={handleRegister} className="space-y-6">
         {/* name */}

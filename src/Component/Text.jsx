@@ -5,7 +5,7 @@ import { Typewriter } from 'react-simple-typewriter';
 const Text = () => {
   
     return (
-        <div className='bg-violet-300 '>
+        <div className='bg-violet-200 '>
           
             <h2 className='text-[3rem] font-bold text-center pt-15 pb-15 text-white'>
 

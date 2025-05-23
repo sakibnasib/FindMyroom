@@ -34,10 +34,11 @@ const RoommateDetails = () => {
    console.log(data.email,user.email )
     return (
         <div className="max-w-4xl mx-auto p-6">
-            <div className="bg-white rounded-lg shadow-lg p-6">
+            <div className="bg-gradient-to-r from-violet-100 via-purple-100 to-pink-100
+ rounded-lg shadow-2xl p-6">
                 {/* Header Section */}
                 <div className="flex justify-center items-center">
-                    <img src={img} className='w-[70px] h-[60px]' alt="" />
+                    <img src={img} className='w-[70px] h-[60px] rounded-3xl' alt="" />
                    <h1 className='text-[1.5rem] font-bold text-violet-600'>RoommateDetails</h1>
                 </div>
                 <div className="flex justify-end ">
@@ -105,7 +106,7 @@ const RoommateDetails = () => {
                     </p>
                 </div>
                <button
-  className={`btn w-full bg-violet-800 text-white rounded-2xl ${
+  className={`btn w-full bg-violet-800 mt-3 text-white rounded-2xl ${
     data.email == user.email ? ' opacity-50' : ''
   }`}
   onClick={() => handleLike(data._id)}

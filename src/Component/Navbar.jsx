@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from "react-router";
 import icon from '../assets/images (1).png'
 import { AuthContex } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Tooltip } from 'react-tooltip';
 const Navbar = () => {
   const {user,logOut}=use(AuthContex);
   const navigate = useNavigate();
@@ -103,15 +104,21 @@ logOut().then(() => {
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost btn-circle avatar tooltip tooltip-left" data-tip={user?.displayName}
+              className="btn btn-ghost btn-circle avatar " 
             >
               <div className="w-10 rounded-full" >
-                <img alt="" src={user.photoURL} />
+                {/* <img alt="" src={user.photoURL} /> */}
+                <a id="my-anchor-element"> <img alt="" src={user.photoURL} /></a>
+<Tooltip
+  anchorSelect="#my-anchor-element"
+  content={user?.displayName}
+  place="left"
+/>
               </div>
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-300 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content "
             >
               {/* <li>
                 <p className="justify-between text-xs font-semibold">
@@ -121,7 +128,7 @@ logOut().then(() => {
               <li>
                 <button
                   onClick={handleLogOut}
-                  className=" mt-2  btn-outline"
+                  className="  font-medium btn btn-soft btn-primar rounded-full "
                 >
                   Logout
                 </button>

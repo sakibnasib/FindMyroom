@@ -49,13 +49,16 @@ findeMyroom is a full-featured roommate and rental discovery platform built with
 
 ## 🧩 Tech Stack
 
-- **Frontend**: React, Tailwind CSS, DaisyUI
-- **Routing**: React Router
-- **State/Data**: Firebase Auth, MongoDB, Axios
-- **UI Libraries**:
-  - [SweetAlert2](https://sweetalert2.github.io/) (via Mosan) for clean toast alerts
-  - [Swiper.js](https://swiperjs.com/) for responsive slider
-  - Lottie React, React Awesome Reveal, React Simple Typewriter, React Tooltip
+-**Frontend**: React, Tailwind CSS, DaisyUI
+-**Routing**: React Router
+-**State/Data**: Firebase Auth, MongoDB, Axios
+-**UI Libraries**:
+-**SweetAlert2**:   for clean toast alerts
+-**Swiper.js**  Swiper.js for responsive slider
+-**Lottie React**: Lottie React,
+-**React Awesome Reveal**:React Awesome Reveal
+-**React Simple Typewriter**: React Simple Typewriter
+-**React Tooltip**: React Tooltip
 
 ---
 
