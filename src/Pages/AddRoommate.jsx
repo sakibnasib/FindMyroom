@@ -49,7 +49,11 @@ body:JSON.stringify(roomateData)
   }
   return (
     <div className=" flex justify-center items-center mt-5 mb-5 w-10/12 mx-auto">
-            <div className="w-full  p-8 space-y-3 rounded-xl bg-violet-300 text-gray-800">
+            <div className="w-full  p-8 space-y-3 rounded-xl 
+      bg-gradient-to-r from-violet-900 via-violet-700 to-purple-500
+
+
+ text-gray-800">
 	<h1 className="text-2xl font-bold text-center">Add to Find Roommate</h1>
 	<form onSubmit={handleAddDb} className="space-y-6">
   <div className=" grid grid-cols-1 md:grid-cols-2 gap-5">
