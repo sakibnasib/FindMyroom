@@ -1,13 +1,14 @@
 
 import React, { use, useState } from 'react';
 import {  useLoaderData } from 'react-router';
-import { MdDelete, MdLocationOn, MdEmail, MdPhone, MdPerson } from "react-icons/md";
+import { MdTitle, MdLocationOn, MdEmail, MdPhone, MdPerson } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import { FaBed, FaDollarSign } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { SlLike } from "react-icons/sl";
 import img from '../assets/images (1).png'
 import { AuthContex } from '../Provider/AuthProvider';
+
 const RoommateDetails = () => {
     const {user}=use(AuthContex)
     const data = useLoaderData();
@@ -78,6 +79,10 @@ const RoommateDetails = () => {
                         <div className="flex items-center gap-2">
                             <MdPerson className="text-violet-600" size={20} />
                             <span className="text-gray-700">Status: {data.availability}</span>
+                        </div>
+                          <div className="flex items-center gap-2">
+                            <MdTitle className="text-violet-600" size={20} />
+                            <span className="text-gray-700">Title: {data.title}</span>
                         </div>
 
                         {
