@@ -2,9 +2,11 @@ import React, { use, useEffect, useState } from 'react';
 import { AuthContex } from '../Provider/AuthProvider';
 import MyListTbody from '../Component/MyListTbody';
 import img from '../assets/images (1).png'
+import Loding from '../Component/Loding';
 const MyListings = () => {
     const {user}=use(AuthContex)
 	const[newData,setNewData]=useState([])
+	const[loding,setLoding]=useState(true)
 	console.log(newData)
 	useEffect(()=>{
 		 if(user?.email){
@@ -12,13 +14,17 @@ const MyListings = () => {
       .then(res=>res.json())
 	  .then(data=>{
 		setNewData(data)
+		setLoding(false)
 	  })
 		 }
 	},[user])
 // hadleDelete 
     
     return (
-         <div className=" p-2 mx-auto sm:p-4 text-gray-800 mb-10">
+		<>
+		{
+			loding ?  <Loding/> :(
+  <div className=" p-2 mx-auto sm:p-4 text-gray-800 mb-10">
 	<div className="flex justify-center items-center mb-5">
 		<img src={img} className='w-[80px] h-[60px] rounded-3xl' alt="" />
 		<h2 className=" ml-2 text-2xl font-semibold text-violet-600">My Add Roommates List</h2>
@@ -49,6 +55,10 @@ const MyListings = () => {
             </table>
             </div>
             </div>
+			)
+		}
+		</>
+       
     );
 };
 

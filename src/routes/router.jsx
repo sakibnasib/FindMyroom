@@ -10,10 +10,12 @@ import RoommateDetails from "../Pages/RoommateDetails";
 import UpDateRoommateInfo from "../Pages/UpDateRoommateInfo";
 import MyListings from "../Pages/MyListings";
 import Loding from "../Component/Loding";
+import Error from "../Component/Error";
 const router = createBrowserRouter([
   {
     path: "/",
     Component: MainLayout,
+    errorElement:<Error></Error>,
     children: [
       { index: true, Component: Home },
       { path: "/login", Component: Login },

@@ -8,6 +8,17 @@ const AddRoommate = () => {
   const handleAddDb=e=>{
       e.preventDefault();
         const form=e.target 
+        if (!form.checkValidity()) {
+    Swal.fire({
+       position: "top-center",
+      icon: 'error',
+      title: 'All fields are required!',
+      text: 'Please fill out all fields before submitting.',
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    return;
+  }
          const formData = new FormData(form);
     const roommate = Object.fromEntries(formData.entries());
     const roomateData={
@@ -45,7 +56,7 @@ body:JSON.stringify(roomateData)
     {/* title */}
     <div className="space-y-1 text-sm">
 			<label  className="block text-gray-600 font-semibold">Title</label>
-			<input type="text"  required name="title" placeholder="Title" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+			<input type="text" required  name="title" placeholder="Title" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
 		</div>
   
     {/*Location  */}
@@ -56,7 +67,7 @@ body:JSON.stringify(roomateData)
     {/* Rent Amount */}
     <div className="space-y-1 text-sm">
 			<label  className="block text-gray-600 font-semibold">Rent Amount</label>
-			<input type="text"  required name="amount" placeholder="Rent Amount" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+			<input type="text"  required  name="amount" placeholder="Rent Amount" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
 		</div>
     {/* Room Type */}
     <div className="space-y-1 text-sm">
@@ -76,24 +87,24 @@ body:JSON.stringify(roomateData)
     {/* Lifestyle Preferences */}
      <div className="space-y-1 text-sm">
 			<label className="block text-gray-600 font-semibold">Lifestyle Preferences</label>
-			<input type="text"  required name="lifestyle" placeholder="Pets, Smoking, Night Owl, etc." className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+			<input type="text"  required  name="lifestyle" placeholder="Pets, Smoking, Night Owl, etc." className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
 		</div>
     {/* Description*/}
     <div className="space-y-1 text-sm">
 			<label  className="block text-gray-600 font-semibold">Description</label>
-			<input type="text"  required name="description" placeholder="description" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+			<input type="text"  required  name="description" placeholder="description" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
 		</div>
 {/* Contact Info */}
 <div className="space-y-1 text-sm">
 			<label htmlFor="password" className="block text-gray-600 font-semibold">Contact Info</label>
-			<input type="text"  required name="contact" placeholder="Phone number" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+			<input type="text"  required  name="contact" placeholder="Phone number" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
 		</div>
     {/* Availability  */}
     <div className="space-y-1 text-sm">
 		<label className="block mb-2 text-gray-600 font-semibold">
         Availability:
         <select
-          name="availability"  required
+          name="availability" 
           className="w-full border p-2 rounded border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600"
         >
           <option value="available">Available</option>
@@ -104,12 +115,12 @@ body:JSON.stringify(roomateData)
     {/* email */}
 		<div className="space-y-1 text-sm">
 			<label htmlFor="username" className="block text-gray-600 font-semibold">Email</label>
-			<input type="email" name="email" value={user.email}  placeholder="email" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+			<input type="email" readOnly name="email" value={user.email}  placeholder="email" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
 		</div>
     {/* name */}
 		<div className="space-y-1 text-sm">
 			<label  className="block text-gray-600 font-semibold">User Name</label>
-			<input type="text" name="name" value={user.displayName} placeholder="" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 dark:text-gray-800 focus:border-violet-600" />
+			<input type="text" readOnly name="name" value={user.displayName} placeholder="" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 dark:text-gray-800 focus:border-violet-600" />
 		</div>
   </div>
 

@@ -8,8 +8,7 @@ const FeatturedSction = () => {
             fetch('https://find-my-roommate-server.vercel.app/roommates/available')
             .then(res=>res.json())
             .then(data=>{
-            //     const newData=data.filter(single=>single.availability==="available")
-            //  const sixData =(newData.slice(0, 6)) 
+           
                 setAlData(data)
                 console.log(data)
             })
