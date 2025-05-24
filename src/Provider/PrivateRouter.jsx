@@ -5,14 +5,14 @@ import Loding from '../Component/Loding';
 
 const PrivateRouter = ({children}) => {
     const { user, loading } =use(AuthContex);
-    const location=useLocation();
+      const location = useLocation();
     if(loading){
         return <Loding></Loding>
     };
     if(user && user?.email){
         return children
     }
-    return <Navigate te={location.pathname} to="/login"></Navigate>
+    return <Navigate state={location?.pathname} to="/login"></Navigate>
 };
 
 export default PrivateRouter;

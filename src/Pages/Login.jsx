@@ -1,13 +1,13 @@
 import React, { use } from 'react';
-import { Link,useLocation } from 'react-router';
+import { Link} from 'react-router';
 import { AuthContex } from '../Provider/AuthProvider';
-import { useNavigate } from 'react-router';
+import { useNavigate, useLocation } from 'react-router';
 import Swal from 'sweetalert2';
 
 const Login = () => {
 	const {signIn,goggle}=use(AuthContex)
  const location = useLocation();
-  const navigate = useNavigate();
+ const navigate = useNavigate();
   console.log(location)
     const handleLogin=e=>{
  e.preventDefault();
@@ -17,7 +17,8 @@ const Login = () => {
  signIn(email,password)
  .then((result)=>{
 	const user = result.user;
-	navigate(`${location.state ? location.state : "/"}`);
+	// Navigate(`${location.state ? location.state : "/"}`);
+	 navigate(`${location.state ? location.state : "/"}`);
 	Swal.fire({
   position: "top-center",
   icon: "success",
@@ -40,8 +41,8 @@ const Login = () => {
 	const handleGoggle=()=>{
 		goggle()
 		.then(()=>{
-    // navigate(`${location.state ? location.state : "/"}`);
-	navigate(location.state?.from || "/");
+    navigate(`${location.state ? location.state : "/"}`);
+	
 	Swal.fire({
   position: "top-center",
   icon: "success",

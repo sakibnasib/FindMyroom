@@ -10,7 +10,7 @@ const MainLayout = () => {
         <div>
            <Navbar></Navbar>
            <div className="min-h-[calc(100vh-218px)]">
-  {state === "loding" ? <Loding></Loding>:<Outlet></Outlet>} 
+  {state === "loading" ? <Loding></Loding>:<Outlet></Outlet>} 
            </div>
           
            <Footer></Footer>
