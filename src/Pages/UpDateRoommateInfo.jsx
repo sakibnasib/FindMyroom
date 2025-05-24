@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 const UpDateRoommateInfo = () => {
   const [roomType, setRoomType] = useState("Single");
 const[availability,setAvailability]=useState('availability')
-const{title,location,amount,lifestyle,description,contact,_id}=useLoaderData()
+const{title,location,amount,lifestyle,description,contact,_id,email,name}=useLoaderData()
   const handleUpDate = (e) => {
   e.preventDefault();
   const form = e.target;
@@ -110,12 +110,12 @@ const{title,location,amount,lifestyle,description,contact,_id}=useLoaderData()
     {/* email */}
 		<div className="space-y-1 text-sm">
 			<label htmlFor="username" className="block text-gray-600 font-semibold">Email</label>
-			<input type="email" name="email" value={'abcd.sakib50@gmail.com'}  placeholder="email" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+			<input type="email" name="email" value={email}  placeholder="email" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
 		</div>
     {/* name */}
 		<div className="space-y-1 text-sm">
 			<label  className="block text-gray-600 font-semibold">User Name</label>
-			<input type="text" name="name" value={'sakib'} placeholder="" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 dark:text-gray-800 focus:border-violet-600" />
+			<input type="text" name="name" value={name} placeholder="" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 dark:text-gray-800 focus:border-violet-600" />
 		</div>
   </div>
 
