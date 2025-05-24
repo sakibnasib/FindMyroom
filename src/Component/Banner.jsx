@@ -23,7 +23,7 @@ const slides =[
 
   },
   {
-     id : 1,
+     id : 3,
      image:logo3,
       title: ' The Best & Faster Roommate Finder .',
      description:'Looking for a roommate, renting out a room, or teaming up to find a new place?'

@@ -3,7 +3,7 @@ import React from "react";
 const Freaquently = () => {
   return (
     <div>
-      <section className="bg-white text-gray-800 mb-10 w-10/12 mx-auto">
+      <section className="bg-white rounded-3xl text-gray-800 mb-10 w-10/12 mx-auto">
 	<div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
 		<h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl">Frequently Asked Questions</h2>
 		<div className="divide-y divide-gray-300">

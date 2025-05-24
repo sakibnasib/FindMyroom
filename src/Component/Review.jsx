@@ -25,7 +25,6 @@ const Review = () => {
       </h2>
       {/* grid */}
         <motion.div
-        v
         className="your-card-classes"
         variants={fadeVariants}
         initial="initial"
@@ -33,7 +32,7 @@ const Review = () => {
       >
 		 <div className=" grid grid-cols-1 md:grid-cols-4 gap-5 px-5 ">
         {/*1 */}
-         <div className=" shadow-2xl  flex flex-col w-full  p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800">
+         <div className=" shadow-2xl  flex flex-col w-full  p-6 mx-auto divide-y rounded-md  bg-gradient-to-r from-white via-gray-50 to-stone-100 text-gray-800">
           <div className="flex justify-between p-4">
             <div className="flex space-x-4">
               <div>
@@ -67,7 +66,7 @@ const Review = () => {
           </div>
         </div>
 		{/* 2 */}
-		<div className=" shadow-2xl flex flex-col w-full  p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800">
+		<div className=" shadow-2xl flex flex-col w-full  p-6 mx-auto divide-y rounded-md  bg-gradient-to-r from-white via-gray-50 to-stone-100 text-gray-800">
           <div className="flex justify-between p-4">
             <div className="flex space-x-4">
               <div>
@@ -101,7 +100,7 @@ const Review = () => {
           </div>
         </div>
 		{/* 3 */}
-		<div className=" shadow-2xl flex flex-col w-full  p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800">
+		<div className=" shadow-2xl flex flex-col w-full  p-6 mx-auto divide-y rounded-md  bg-gradient-to-r from-white via-gray-50 to-stone-100 text-gray-800">
           <div className="flex justify-between p-4">
             <div className="flex space-x-4">
               <div>
@@ -135,7 +134,7 @@ const Review = () => {
           </div>
         </div>
 		{/* 4 */}
-		<div className=" shadow-2xl flex flex-col w-full  p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800">
+		<div className=" shadow-2xl flex flex-col w-full  p-6 mx-auto divide-y rounded-md  bg-gradient-to-r from-white via-gray-50 to-stone-100  text-gray-800">
           <div className="flex justify-between p-4">
             <div className="flex space-x-4">
               <div>

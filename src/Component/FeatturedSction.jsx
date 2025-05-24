@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import RoommateCard from './RoommateCard';
 import { Bounce} from "react-awesome-reveal";
+import Loding from '../Component/Loding'
 const FeatturedSction = () => {
     const [aldata,setAlData]=useState([])
-    
+    const[loding,setLoding]=useState(true)
         useEffect(()=>{
             fetch('https://find-my-roommate-server.vercel.app/roommates/available')
             .then(res=>res.json())
             .then(data=>{
-           
                 setAlData(data)
-                console.log(data)
+                setLoding(false)
             })
         },[])
     return (
-        <div className='mt-5'>
+        <>
+      {
+          loding ? <Loding></Loding> : (
+ <div className='mt-5'>
             <Bounce >
                  <h1 className='text-[3rem] font-bold text-center'>Find Your New Roommate</h1>
             </Bounce>
@@ -26,6 +29,10 @@ const FeatturedSction = () => {
             }
             </div>
         </div>
+        )
+      }
+        </>
+       
     );
 };
 

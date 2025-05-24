@@ -4,7 +4,7 @@ import photo2 from '../assets/hiw-2-e5804a6ba2fbe5bb7c22ff10488da6faf76e6c7f7b55
 import photo3 from '../assets/hiw-3-15536a50f0c8f20c14b66eaa5069192428c9df4420bf8411d8e5a295917d63e7.png'
 const HowToWork = () => {
     return (
-        <div className='mb-10'>
+        <div className='mb-10 w-11/12 mx-auto py-10 rounded-2xl text-gray-900 bg-gradient-to-r from-white via-gray-50 to-stone-100'>
             <h2 className='text-[4rem] font-bold text-center'>How it works</h2>
    <div className="w-9/12 mx-auto space-y-4">
 {/* 1 */}
