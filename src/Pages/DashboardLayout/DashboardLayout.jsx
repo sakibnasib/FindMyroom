@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {  NavLink, Outlet } from "react-router";
-import { Menu, X } from "lucide-react";
+import { LogOut, Menu, X } from "lucide-react";
 import Logo from "../../Component/Logo";
 import Logouts from "../../Component/Logouts";
 
@@ -76,8 +76,11 @@ const DashboardLayout = () => {
           >
             🙍‍♂️ My Profile
           </NavLink>
-         
-          <Logouts/>
+         <li className="flex">
+           <LogOut size={20} />
+           <Logouts/>
+         </li>
+          
         </ul>
       </aside>
 

@@ -12,9 +12,9 @@ const ContactUs = () => {
         <div className="grid md:grid-cols-2 gap-10 items-center">
           {/* Left side contact illustration */}
           <img
-            src="https://i.ibb.co/JrK9zVR/contact.png"
+            src="https://i.ibb.co/S4K3jHBc/4387144.jpg"
             alt="Contact"
-            className="w-full max-w-sm mx-auto animate-fadeIn"
+            className="w-full max-w-sm mx-auto animate-fadeIn rounded-2xl"
           />
 
           {/* Right side contact form */}

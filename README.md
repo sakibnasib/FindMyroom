@@ -10,12 +10,6 @@
 
 ---
 
-## 📸 Preview
-
-![FindMyRoom Banner](https://i.ibb.co/yf6t9tk/findmyroom-banner.png) <!-- Replace with your own banner or GIF -->
-
----
-
 ## 🌟 Features
 
 - 🔐 **Secure Authentication**
@@ -35,7 +29,6 @@
   - Responsive tables, cards, and form components
   - Skeleton loaders while fetching data
 
-- 🌗 **Dark/Light Mode Toggle**
 
 ---
 

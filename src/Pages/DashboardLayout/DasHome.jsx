@@ -20,7 +20,7 @@ const DasHome = () => {
           const loc = curr.location || 'Unknown';
           acc[loc] = (acc[loc] || 0) + 1;
           return acc;
-        }, {});
+        }, {},[roommateCount]);
 
         const chartData = Object.entries(grouped).map(([location, count]) => ({
           location,
