@@ -1,79 +1,114 @@
-# findeMyroom 🏠
+<h1 align="center">🏠 FindMyRoom</h1>
 
-**Live Site:** [https://findmyroom-d1044.web.app](https://findmyroom-d1044.web.app)
+<p align="center">
+  A modern roommate and rental listing platform built with <strong>React</strong>, <strong>Firebase</strong>, <strong>MongoDB</strong>, and <strong>Tailwind CSS</strong>.
+</p>
 
-findeMyroom is a full-featured roommate and rental discovery platform built with modern technologies. It offers an intuitive user experience with dynamic listings, secure authentication, interactive UI components, and clean UI feedback.
-
----
-
-## 🌟 Key Features
-
-- 🏡 **Interactive Home Page**
-  - 🎞️ Swiper.js-powered banner/slider with at least 3 slides and meaningful messaging.
-  - ⭐ Featured Roommates section showing 6 dynamic posts using MongoDB's `limit()` query.
-  - 📚 Two extra meaningful content sections for user guidance or testimonials.
-
-- 🔐 **Secure Auth System**
-  - Email/password login & registration (with Google login).
-  - Strong password policy (uppercase, lowercase, min 6 chars).
-  - Toast notifications using **Mosan SweetAlert2** for all success/error messages.
-
-- 🛠️ **Full CRUD Support**
-  - Add, update, and delete roommate posts via protected routes.
-  - Update via full page or modal.
-  - MongoDB used for storing all listing data.
-
-- ❤️ **Engaging Details Page**
-  - Like system to show interest (excluding self-posts).
-  - Dynamic count of interested users shown.
-  - Reveal contact number only after liking the post.
-
-- 🌘 **Theme Switcher**
-  - Toggle between light and dark mode for improved accessibility and user preference.
+<p align="center">
+  🔗 <a href="https://findmyroom-d1044.web.app" target="_blank"><strong>Live Site</strong></a>
+</p>
 
 ---
 
-## 🧭 Core Pages
+## 📸 Preview
 
-- **Home Page** – Swiper carousel, featured roommate section, and two extra helpful sections.
-- **Login/Register** – Email/password auth with Google login. Realtime validation + SweetAlert2 feedback.
-- **Add Roommate Post** – Form-based listing creation (with read-only name/email).
-- **Browse Listings** – All user listings shown in table format with “See More” links.
-- **Details Page** – Shows full post info. Protected route.
-- **My Listings** – View, update, and delete your own posts only.
-- **Update Page** – Edit previously created roommate listings.
-- **404 Page** – Friendly error page for invalid routes.
-- **Loading Spinner** – Appears during data fetching.
+![FindMyRoom Banner](https://i.ibb.co/yf6t9tk/findmyroom-banner.png) <!-- Replace with your own banner or GIF -->
 
 ---
 
-## 🧩 Tech Stack
+## 🌟 Features
 
--**Frontend**: React, Tailwind CSS, DaisyUI
--**Routing**: React Router
--**State/Data**: Firebase Auth, MongoDB, Axios
--**UI Libraries**:
--**SweetAlert2**:   for clean toast alerts
--**Swiper.js**  Swiper.js for responsive slider
--**Lottie React**: Lottie React,
--**React Awesome Reveal**:React Awesome Reveal
--**React Simple Typewriter**: React Simple Typewriter
--**React Tooltip**: React Tooltip
+- 🔐 **Secure Authentication**
+  - Firebase login/register (Email + Google)
+  - Client-side validation + SweetAlert2 feedback
 
----
+- 🏠 **Add & Manage Roommate Listings**
+  - Add, update, and delete posts (only by owner)
+  - Read-only email/name autofilled from Firebase
 
-## 🚀 Getting Started
+- 🧠 **Like System + Contact Reveal**
+  - Users can like posts to express interest
+  - Contact number shown only after liking
 
-1. Clone this repository.
-2. Install dependencies: `npm install`
-3. Configure `.env` with Firebase and MongoDB info.
-4. Start dev server: `npm run dev`
+- 🎨 **Modern UI**
+  - Swiper.js sliders
+  - Responsive tables, cards, and form components
+  - Skeleton loaders while fetching data
 
----
-
-## 🙌 Contribute
-
-Want to contribute? Pull requests and feedback are welcome!
+- 🌗 **Dark/Light Mode Toggle**
 
 ---
 
+## 🗂️ Core Pages
+
+| Route                        | Description                                |
+|-----------------------------|--------------------------------------------|
+| `/`                         | Homepage with slider, featured listings    |
+| `/auth/login` / `/auth/register`      | Auth pages with Firebase integration       |
+| `/das/addRoommate`          | Add new roommate post                      |
+| `/das/my-listings`          | Edit/delete your own listings              |
+| `/das/browseListing`        | See all available roommate posts           |
+| `/details/:id`              | Full listing info + like functionality     |
+| `/das/upDateRoommateInfo/:id` | Update form for existing listing        |
+| `*`                         | Custom 404 page                            |
+
+---
+
+## 🌐 Backend API
+
+Hosted on **Vercel**:  
+**`https://find-my-roommate-server.vercel.app`**
+
+| Endpoint                              | Method | Description                                 |
+|---------------------------------------|--------|---------------------------------------------|
+| `/roommates`                          | GET    | Get all listings                            |
+| `/roommates/email/:email`            | GET    | Get listings by user email                  |
+| `/roommates/:id`                      | GET    | Get single roommate by ID                   |
+| `/roommates`                          | POST   | Add new roommate post                       |
+| `/roommates/:id`                      | PUT    | Update post                                 |
+| `/roommates/:id`                      | DELETE | Delete post                                 |
+| `/roommates/like/:id`                 | PATCH  | Like a post                                 |
+
+---
+
+## 🛠️ Tech Stack
+
+### 💻 Frontend
+- React (Vite)
+- Tailwind CSS + DaisyUI
+- React Router DOM
+- Firebase Authentication
+- Axios for API calls
+
+### 🎨 UI Libraries
+- **Swiper.js** – responsive carousels  
+- **SweetAlert2** – for alerts/toasts  
+- **React Awesome Reveal**, **Typewriter**, **Tooltip**, **Lottie** – visual enhancements
+
+### 🔧 Backend
+- Node.js & Express (Vercel hosted)
+- MongoDB Atlas
+- Firebase Auth for secured endpoints
+
+---
+
+## ⚙️ Setup Instructions
+
+### 🔐 .env.local Configuration
+
+Create a `.env.local` file in the root directory with:
+
+```env
+# Firebase Auth Configuration
+VITE_apiKey=AIzaSyB86dJMzjPvvjDjkt6zaXj4uI_YmvbSZTc
+VITE_authDomain=findmyroom-d1044.firebaseapp.com
+VITE_projectId=your_project_id
+VITE_storageBucket=your_storage_bucket
+VITE_messagingSenderId=your_messagingSenderId
+VITE_appId=your_app_id
+
+# Image Upload (imgbb)
+VITE_IMGBB_API_KEY=your_imgbb_api_key
+
+# Backend API
+VITE_API_URL=https://find-my-roommate-server.vercel.app

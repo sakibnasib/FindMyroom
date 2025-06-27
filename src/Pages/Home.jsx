@@ -1,20 +1,22 @@
 import React from 'react';
-import Text from '../Component/Text';
-import Banner from '../Component/Banner';
-import FeatturedSction from '../Component/FeatturedSction';
-import HowToWork from '../Component/HowToWork';
-import Review from '../Component/Review';
-import Freaquently from '../Component/Freaquently';
+import FeatturedSction from '../Component/Home/FeatturedSction';
+import FeaturesSection from '../Component/Home/FeaturesSection';
+import Banner from '../Component/Home/Banner';
+import HowItWorks from '../Component/Home/HowToWork';
+import Testimonials from '../Component/Home/Testimonials';
+import Stat from '../Component/Home/Stat';
+import Frequently from '../Component/Home/Freaquently';
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <Text></Text>
             <FeatturedSction></FeatturedSction>
-            <HowToWork></HowToWork>
-            <Review></Review>
-            <Freaquently></Freaquently>
+            <FeaturesSection/>
+           <HowItWorks/>
+            <Testimonials/>
+           <Stat/>
+            <Frequently/>
         </div>
     );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 
-const MyListTbody = ({data,index,setNewData,newData}) => {
+const MyListTbody = ({data,setNewData,newData}) => {
     const handleDelete = (_id) => {
             Swal.fire({
                 title: "Are you sure?",
@@ -32,10 +32,18 @@ const MyListTbody = ({data,index,setNewData,newData}) => {
             });
         };
     return (
-       <tbody className='bg-gray-700'>
+       <tbody   className='bg-gray-700'>
            <tr className="border-b border-opacity-20 border-gray-300 bg-gray-50">
 					<td className="p-3">
-						<p>{index +1}</p>
+						
+					</td>
+                    <td>
+						<div className="mask  h-16 w-16">
+                <img
+                className='w-full rounded-full'
+                  src={data?.imageUrl}
+                  alt="Avatar Tailwind CSS Component" />
+              </div>
 					</td>
 					<td className="p-3">
 						<p>{data.name}</p>
@@ -50,7 +58,7 @@ const MyListTbody = ({data,index,setNewData,newData}) => {
 						<p className=''>{data.availability}</p>
 					</td>
 					<td className="p-3 text-right flex gap-3 ">
-                        <Link  to={`/upDateRoommateInfo/${data._id}`}>
+                        <Link  to={`/das/upDateRoommateInfo/${data._id}`}>
                         <button className="px-3 py-1 font-semibold rounded-md bg-violet-600 text-gray-50">
 							Edite
 						</button>

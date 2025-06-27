@@ -1,8 +1,8 @@
 import React from 'react';
-import Navbar from '../Component/Navbar';
+import Navbar from '../Component/Shared/Navbar';
 import { Outlet, useNavigation } from 'react-router';
-import Footer from '../Component/Footer';
-import Loding from '../Component/Loding';
+import Footer from '../Component/Shared/Footer';
+import Loding from '../Component/Shared/Loding';
 
 const MainLayout = () => {
     const {state}=useNavigation();
